@@ -1,5 +1,5 @@
 ## TODO
-- Refreshing the list
+- CORS
 
 ## Done
 - List of all todos
