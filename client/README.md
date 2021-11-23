@@ -8,3 +8,4 @@
 - Deleting a todo
 - Editing a single todo
 - Toggling the completion status of a todo
+- Use database
