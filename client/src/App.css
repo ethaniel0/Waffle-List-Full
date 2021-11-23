@@ -1,0 +1,111 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  width: 100%;
+  padding-top: 2rem;
+  box-sizing: border-box;
+}
+
+span.title {
+  color: white;
+  font-size: 2rem;
+}
+
+.content {
+  width: 50%;
+  position: relative;
+}
+
+.content-top {
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+
+}
+
+button {
+  background: rgb(49, 118, 184);
+  border: none;
+  padding: 0.5rem;
+  color: white;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  right: 0;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.item {
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  color: white;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.item-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.item-title {
+  font-size: 1.4rem;
+}
+.item-top input {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.item-notes {
+  font-size: 0.8rem;
+}
+.item-body {
+  display: flex;
+  flex-direction: column;
+}
+.item-body span {
+  margin-bottom: 0.5rem;
+}
+.delete-btn {
+  background: rgb(184, 49, 49);
+  margin-right: 1rem;
+  margin-bottom: 0;
+}
+.edit-btn {
+  background: rgb(38, 141, 85);
+  margin-bottom: 0;
+}
+.discard-btn {
+  background: rgb(184, 99, 49);
+  margin-right: 1rem;
+  margin-bottom: 0;
+}
+.save-btn {
+  margin-bottom: 0;
+}
+
+.new-form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  color: white;
+  border: 2px dashed lightgray;
+  padding: 1rem;
+}
+.new-form input, .item-input {
+  background: none;
+  border: none;
+  border-bottom: 2px solid rgb(200, 200, 200);
+  font-size: 1.4rem;
+  outline: none;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+.add-btn {
+  margin-bottom: 0;
+}
+
