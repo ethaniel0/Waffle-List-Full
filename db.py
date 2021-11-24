@@ -1,8 +1,10 @@
 import sqlite3
 from sqlite3 import Error
+import os
 
-db_file = '/Users/ethanhorowitz/Desktop/Waffle List Full/WaffleDB.sqlite3'
+db_file = os.path.dirname(__file__) + '/WaffleDB.sqlite3'
 
+# connects to the database and returns the connection
 def create_connection(db_file):
     """ create a database connection to a SQLite database """
     conn = None
@@ -12,6 +14,7 @@ def create_connection(db_file):
         print(e)
     return conn
 
+# gets tasks from database and returns them as they're represented in the front end
 def format_tasks(arr):
     ret = []
     for i in arr:
@@ -23,6 +26,7 @@ def format_tasks(arr):
         })
     return ret
 
+# executes any sql to save lines in other functions
 def do_task(sql, task, cur=None):
     if cur == None:
         conn = create_connection(db_file)
@@ -55,6 +59,7 @@ def edit_item(item, index):
     cur, conn = do_task(sql, task)
     conn.close()
 
+# change the id of a table item (used when deleting an item)
 def edit_index(index1, index2, cur=None):
     sql = '''UPDATE tasks
              SET id = ?
@@ -72,6 +77,7 @@ def delete_item(index):
     conn.commit()
     conn.close()
 
+# get all items in the db
 def get_items():
     conn = create_connection(db_file)
     cur = conn.cursor()
