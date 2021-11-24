@@ -4,6 +4,8 @@ const NewForm = ({ addItem, close }) => {
     const [title, editTitle] = useState('');
     const [notes, editNotes] = useState('');
     const [date, editDate] = useState('');
+
+    // puts the title, notes, and date into a complete todo item, then resets the form
     const getItem = () => {
         close();
         let t = title;
@@ -19,6 +21,7 @@ const NewForm = ({ addItem, close }) => {
             completed: false
         }
     }
+
     return (
         <div className="new-form">
             <input type="text" value={title} onChange={(e) => editTitle(e.target.value)} placeholder='What do you need to do?' />

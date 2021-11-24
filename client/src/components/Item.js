@@ -6,6 +6,7 @@ const Item = ({ details, clicked, ind, select, onDelete, editable, edit, editIte
     const [notes, editNotes] = useState(details.notes);
     const [date, editDate] = useState(details.date);
 
+    // saves an item after being edited
     const save = () => {
         editItem(ind, {
             title,
@@ -16,6 +17,7 @@ const Item = ({ details, clicked, ind, select, onDelete, editable, edit, editIte
         edit(-1);
     }
 
+    // checks or unchecks an item
     const complete = (checked) => {
         editItem(ind, {
             title: details.title,
@@ -31,30 +33,33 @@ const Item = ({ details, clicked, ind, select, onDelete, editable, edit, editIte
         <div className='item' onClick={!editable ? () => select(clicked ? -1 : ind) : () => {}}>
             {
                 !editable ?
+                //  item when being viewed
                 <>
                     <div className='item-top'>
                         <span className='item-title'> {details.title}</span>
                         <input onChange={(e) => complete(e.currentTarget.checked)} onClick={e => e.stopPropagation()} checked={details.completed} type="checkbox" />
                     </div>
                     <div className='item-body'>
-                    {
-                        !clicked ? <span className='item-notes'>{splitNotes.substring(0, 50) + (splitNotes.length > 50 ? "..." : "")}</span>
-                                : (
-                                    <>
-                                        <span className='item-notes-full'>{details.notes}</span>
-                                        {details.date && <span className='item-notes-full'>Due {details.date}</span>}
-                                        <div style={{marginTop: '0.5rem'}}>
-                                            <button className='delete-btn' onClick={() => onDelete(ind)}>Delete Item</button>
-                                            <button className='edit-btn' onClick={(e) => {e.stopPropagation(); edit(ind)}}>Edit Item</button>
-                                        </div>
-                                    </>
-                                )
-                    }
+
+                        {/* if in detailed view, show all parts, otherwise condensed notes */}
+                        {
+                            !clicked ? <span className='item-notes'>{splitNotes.substring(0, 50) + (splitNotes.length > 50 ? "..." : "")}</span>
+                                    : (
+                                        <>
+                                            <span className='item-notes-full'>{details.notes}</span>
+                                            {details.date && <span className='item-notes-full'>Due {details.date}</span>}
+                                            <div style={{marginTop: '0.5rem'}}>
+                                                <button className='delete-btn' onClick={() => onDelete(ind)}>Delete Item</button>
+                                                <button className='edit-btn' onClick={(e) => {e.stopPropagation(); edit(ind)}}>Edit Item</button>
+                                            </div>
+                                        </>
+                                    )
+                        }
                     </div>
                     </>
             : 
-            <>
-                
+            // item when being edited (very similar to the form)
+            <>   
                 <div className='item-body'>
                     <input type='text' className='item-title item-input' value={title} onChange={(e) => editTitle(e.target.value)} />
                     <input type='text' className='item-notes-full item-input' value={notes} onChange={(e) => editNotes(e.target.value)} />
