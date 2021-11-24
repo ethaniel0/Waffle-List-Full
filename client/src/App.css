@@ -109,3 +109,17 @@ button {
   margin-bottom: 0;
 }
 
+#header {
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 4rem;
+}
+#header img {
+  margin-right: 2rem;
+}
+#header span {
+  font-size: 2rem;
+  color: rgba(202,138,4);
+}

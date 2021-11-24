@@ -1,6 +1,7 @@
 import './App.css';
 import Item from './components/Item';
 import NewForm from './components/NewForm';
+import Header from './components/Header'
 import { useState, useEffect } from 'react';
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <span className='title'>Todo</span>
       <div className='content'>
         <div className='content-top'>
