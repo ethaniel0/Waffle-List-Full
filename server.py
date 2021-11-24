@@ -1,4 +1,4 @@
-from flask import Flask, request, after_this_request, jsonify
+from flask import Flask, request, jsonify
 import db
 app = Flask(__name__)
 
