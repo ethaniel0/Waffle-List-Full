@@ -61,8 +61,8 @@ const Item = ({ details, clicked, ind, select, onDelete, editable, edit, editIte
             // item when being edited (very similar to the form)
             <>   
                 <div className='item-body'>
-                    <input type='text' className='item-title item-input' value={title} onChange={(e) => editTitle(e.target.value)} />
-                    <input type='text' className='item-notes-full item-input' value={notes} onChange={(e) => editNotes(e.target.value)} />
+                    <input type='text' className='item-title item-input' value={title} placeholder="Task Name" onChange={(e) => editTitle(e.target.value)} />
+                    <input type='text' className='item-notes-full item-input' value={notes} placeholder="Description" onChange={(e) => editNotes(e.target.value)} />
                     <div><span style={{marginRight: '0.5rem', fontSize: '1.4rem'}}>Due Date</span> <input className="item-input" type="date" value={date} onChange={(e) => editDate(e.target.value)} /></div>
                     <div style={{marginTop: '0.5rem'}}>
                         <button className='discard-btn' onClick={() => edit(-1)}>Discard</button>
